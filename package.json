@@ -35,6 +35,7 @@
     "helmet": "^6.0.0",
     "knex": "^2.4.0",
     "mysql": "^2.18.1",
+    "objection": "^3.0.1",
     "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {

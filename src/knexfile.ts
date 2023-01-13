@@ -2,16 +2,16 @@ import dotenv from 'dotenv';
 dotenv.config();
 import { Knex } from 'knex';
 
-console.log("Service connected to " + process.env.POSTGRES_DB + " successfully");
+console.log("Service connected to " + process.env.MYSQL_DB + " db successfully");
 
 const config: { [key: string]: Knex.Config } = {
   development: {
-    client: 'pg',
+    client: 'mysql',
     connection: {
-      host: process.env.POSTGRES_HOST,
-      user: process.env.POSTGRES_USER,
-      password: process.env.POSTGRES_PASSWORD,
-      database: process.env.POSTGRES_DB
+      host: process.env.MYSQL_HOST,
+      user: process.env.MYSQL_USER,
+      password: process.env.MYSQL_PASSWORD,
+      database: process.env.MYSQL_DB
     },
     migrations: {
       extension: 'ts',

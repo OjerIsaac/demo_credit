@@ -1,28 +1,32 @@
-# NodeJS Backend Starter Template
-This is a backend starter template powered by Nodejs, Express and TS
+# LENDSQR BACKEND DEVELOPER ASSESSMENT
+This is the backend app for lendsqr powered by Nodejs and TS
 
 ## Requirements
 - NodeJS runtime
 - NPM or Yarn package manager
-- MongoDB Database
+- MySQL Database
 
 ## Features
 - Completely written in [Typescript](https://typescriptlang.org/)
-- [Express](https://expressjs.com/) Nodejs framework
-- [Mongoose](https://mongoosejs.com/) MongoDB ORM
+[MySQL](https://dev.mysql.com/doc/) The world's most popular open source database
+- [Objection.js](https://vincit.github.io/objection.js/) SQL ORM for Nodejs
+- [Knexjs](https://knexjs.org/) SQL query builder
 
 ## How to install
 - Clone the repository
-- `git clone https://github.com/Intrapair/backend-starter-template.git`
-- `cd backend-starter-template`
+- `git clone https://github.com/OjerIsaac/lendsqr.git`
+- `cd lendsqr`
 - Install dependencies
-- `yarn install`
+- `npm install`
 - Setup environment variable
-- `cp .env.example .env`
+- `cp .env.sample .env`
+- Fill in data for db (MySQL)
+- Run Migration
+- `npm run migrate:latest`
+- To seed db
+- `npm run seed:run`
 - Run the server in dev env
-- `yarn dev`
-- To run the service in production env
-- `yarn build && yarn start`
+- `npm run dev`
 
 ## Documentation link
 Add your documentation link
