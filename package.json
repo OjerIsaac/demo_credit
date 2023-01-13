@@ -1,31 +1,38 @@
 {
-  "name": "backend-starter-template",
+  "name": "lendsqr",
   "version": "1.0.0",
-  "description": "Nodejs backend starter template powered by Express & TS",
+  "description": "Backend Developer Assessment",
   "main": "dist/index.js",
   "scripts": {
     "dev": "nodemon src/index.ts",
     "build": "sh build.sh",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "knex:init": "knex init -x ts",
+    "knex:run": "knex --knexfile src/knexfile.ts",
+    "migrate:currentVersion": "npm run knex:run -- migrate:currentVersion",
+    "migrate:list": "npm run knex:run -- migrate:list",
+    "migrate:make": "npm run knex:run -- migrate:make --",
+    "migrate:latest": "npm run knex:run -- migrate:latest --debug",
+    "migrate:rollback": "npm run knex:run -- migrate:rollback --all --debug",
+    "seed:make": "npm run knex:run -- seed:make --",
+    "seed:run": "npm run knex:run -- seed:run --debug"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Intrapair/backend-starter-template.git"
+    "url": "git+https://github.com/OjerIsaac/lendsqr.git"
   },
-  "author": "Intrapair OSS <oss@intrapair.com>",
+  "author": "Isaac Ojerumu <isaacojerumu@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Intrapair/backend-starter-template/issues"
+    "url": "https://github.com/OjerIsaac/lendsqr/issues"
   },
-  "homepage": "https://github.com/Intrapair/backend-starter-template#readme",
+  "homepage": "https://github.com/OjerIsaac/lendsqr#readme",
   "dependencies": {
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.1",
-    "express-mongo-sanitize": "^2.2.0",
     "helmet": "^6.0.0",
-    "mongoose": "^6.6.3",
     "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {

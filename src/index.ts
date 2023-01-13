@@ -2,26 +2,14 @@ import dotenv from 'dotenv';
 dotenv.config(); // load env variables
 import 'reflect-metadata';
 import app from './app';
-import { connect, connection } from 'mongoose';
 
 (async () => {
     try {
-        // connect to db
-        const db = await connect(String(process.env.DB_URI));
-        if(db) console.log('Connected to DB');
-
-        connection.on('error', (err) => {
-            console.log(`Error connecting to DB: ${err}`);
-        });
-        connection.on('disconnected', () => {
-            console.log('Mongoose connection closed')
-        });
-
-        const port = Number(process.env.PORT) || 3000;
+        const port = Number(process.env.PORT) || 3030;
 
         // spin up the server
         app.listen(port, () => {
-            console.log(`Server is running on port ${port}`);
+            console.log("Lendsqr backend service is running on http://localhost:" + port);
         });
     } catch(err) {
         console.log(err);
@@ -29,12 +17,6 @@ import { connect, connection } from 'mongoose';
     }
 
 })();
-
-process.on('SIGINT', async () => {
-    // close connection to db
-    await connection.close();
-    process.exit(0);
-});
 
 // server needs to crash gracefully 
 process.on('uncaughtException', (err) => {
