@@ -42,11 +42,16 @@ export const registerUser = async (req: Request, res: Response) => {
         }
   
         // check for duplicates
-        const userExists = await User.query().select().where('email', email)
+        const emailExists = await User.query().select().where('email', email)
         // .debug();
+        const usernameExists = await User.query().select().where('username', username)
       
-        if(userExists.length > 0) {
-            return errorResponse(res, httpErrors.AccountExists, "This user already exists.")
+        if(emailExists.length > 0) {
+            return errorResponse(res, httpErrors.AccountExists, "User with this email already exists.")
+        }
+
+        if(usernameExists.length > 0) {
+            return errorResponse(res, httpErrors.AccountExists, "This username is already taken.")
         }
   
         // create new user
