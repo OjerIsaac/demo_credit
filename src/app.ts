@@ -9,7 +9,7 @@ import httpErrors from './utils/constants/httpErrors';
 const app: Application = express();
 
 // import routes
-// import routes from './routes';
+import routes from './routes';
 
 app.use(cors());
 app.use(express.json());
@@ -20,7 +20,7 @@ app.use(compression()); // compress all middleware
 app.use(helmet());
 
 // mount routes
-//app.use('/', routes);
+app.use('/v1', routes);
 
 // index route
 app.get('/', (req: Request, res: Response) => {
