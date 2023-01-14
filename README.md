@@ -8,7 +8,7 @@ This is the backend app for lendsqr powered by Nodejs and TS
 
 ## Features
 - Completely written in [Typescript](https://typescriptlang.org/)
-[MySQL](https://dev.mysql.com/doc/) The world's most popular open source database
+- [MySQL](https://dev.mysql.com/doc/) The world's most popular open source database
 - [Objection.js](https://vincit.github.io/objection.js/) SQL ORM for Nodejs
 - [Knexjs](https://knexjs.org/) SQL query builder
 

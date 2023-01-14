@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
-dotenv.config();
+import path from "path";
+dotenv.config({path: path.resolve(__dirname, '../.env')});
 import { Knex } from 'knex';
 
 console.log("Service connected to " + process.env.MYSQL_DB + " db successfully");
