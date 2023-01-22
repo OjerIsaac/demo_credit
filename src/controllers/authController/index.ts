@@ -42,9 +42,9 @@ export const registerUser = async (req: Request, res: Response) => {
         }
   
         // check for duplicates
-        const emailExists = await User.query().select().where('email', email)
+        const emailExists = await UsersTableModel.query().select().where('email', email)
         // .debug();
-        const usernameExists = await User.query().select().where('username', username)
+        const usernameExists = await UsersTableModel.query().select().where('username', username)
       
         if(emailExists.length > 0) {
             return errorResponse(res, httpErrors.AccountExists, "User with this email already exists.")
@@ -65,7 +65,7 @@ export const registerUser = async (req: Request, res: Response) => {
             password: hash
         };
       
-        await User.query().insert(newUser);
+        await UsersTableModel.query().insert(newUser);
   
         return successResponse(res, "User created successfully", { });
     } catch (error) {

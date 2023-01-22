@@ -5,7 +5,7 @@ interface UsersTable {
   full_name: string,
   username: string;
   email: string,
-  wallet?: string,
+  wallet?: number,
   password: string;
 }
 
