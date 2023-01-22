@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { User} from '../../models/users';
+import UsersTableModel from '../../models/users';
 import _ from "lodash";
 import bcrypt from "bcrypt";
 import { errorResponse, successResponse } from "../../utils/lib/response";
@@ -68,6 +68,42 @@ export const registerUser = async (req: Request, res: Response) => {
         await User.query().insert(newUser);
   
         return successResponse(res, "User created successfully", { });
+    } catch (error) {
+      console.log(error);
+      return errorResponse(res, httpErrors.ServerError, "Something went wrong");
+    }
+};
+
+/**
+ * @description login user
+ * @param req Request object
+ * @param res Response object
+ * @returns ErrorResponse | SuccessResponse
+ */
+export const loginUser = async (req: Request, res: Response) => {
+    try {
+        const { username, password } = req.body;
+        
+        // find user in db
+        const user = await UsersTableModel.query().select('username', 'password').where('username', username)
+        console.log(user[0].password)
+
+        if(user.length < 1) {
+            return errorResponse(res, httpErrors.AccountNotFound, "Invalid Username.")
+        }
+
+        // check password validity
+        let passwordCorrect = await bcrypt.compare(password, user[0].password);
+  
+        // if (!passwordCorrect) {
+        //     return errorResponse(res, httpErrors.AccountError, "Invalid password.");
+        // }
+
+        // // create and assign token
+        // const token = jwt.sign({ userId: user[0].id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        // return successResponse(res, { token });
+  
+        // return successResponse(res, "User created successfully", { });
     } catch (error) {
       console.log(error);
       return errorResponse(res, httpErrors.ServerError, "Something went wrong");
