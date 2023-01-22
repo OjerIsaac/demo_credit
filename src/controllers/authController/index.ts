@@ -85,8 +85,8 @@ export const loginUser = async (req: Request, res: Response) => {
         const { username, password } = req.body;
         
         // find user in db
-        const user = await UsersTableModel.query().select('username', 'password').where('username', username)
-        console.log(user[0].password)
+        const user = await UsersTableModel.query().select().where('username', username)
+        // console.log(user[0].full_name)
 
         if(user.length < 1) {
             return errorResponse(res, httpErrors.AccountNotFound, "Invalid Username.")
@@ -95,15 +95,19 @@ export const loginUser = async (req: Request, res: Response) => {
         // check password validity
         let passwordCorrect = await bcrypt.compare(password, user[0].password);
   
-        // if (!passwordCorrect) {
-        //     return errorResponse(res, httpErrors.AccountError, "Invalid password.");
-        // }
+        if (!passwordCorrect) {
+            return errorResponse(res, httpErrors.AccountError, "Invalid password.");
+        }
 
-        // // create and assign token
+        let name = user[0].full_name;
+
+        // create and assign token
         // const token = jwt.sign({ userId: user[0].id }, process.env.JWT_SECRET, { expiresIn: '1h' });
         // return successResponse(res, { token });
   
-        // return successResponse(res, "User created successfully", { });
+        return successResponse(res, "Login successful", { data: {
+            name
+        }});
     } catch (error) {
       console.log(error);
       return errorResponse(res, httpErrors.ServerError, "Something went wrong");
