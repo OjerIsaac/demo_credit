@@ -5,6 +5,7 @@ import bcrypt from "bcrypt";
 import { errorResponse, successResponse } from "../../utils/lib/response";
 import httpErrors from "../../utils/constants/httpErrors";
 import { generateErrorMessage } from "../../utils/lib/generate-error-messages";
+import JWT from "../../utils/lib/jwt";
 
 /**
  * @description register a new user
@@ -86,7 +87,7 @@ export const loginUser = async (req: Request, res: Response) => {
         
         // find user in db
         const user = await UsersTableModel.query().select().where('username', username)
-        // console.log(user[0].full_name)
+        // console.log(user[0].id)
 
         if(user.length < 1) {
             return errorResponse(res, httpErrors.AccountNotFound, "Invalid Username.")
@@ -100,12 +101,13 @@ export const loginUser = async (req: Request, res: Response) => {
         }
 
         let name = user[0].full_name;
+        let id = user[0].id;
+        let expiresIn = "1h";
 
         // create and assign token
-        // const token = jwt.sign({ userId: user[0].id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-        // return successResponse(res, { token });
+        const token = JWT.generateAccessToken(id, name, expiresIn);
   
-        return successResponse(res, "Login successful", { data: {
+        return successResponse(res, "Login successful", { token, data: {
             name
         }});
     } catch (error) {
