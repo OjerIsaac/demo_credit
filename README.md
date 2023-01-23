@@ -20,7 +20,7 @@ This is the backend app for lendsqr powered by Nodejs and TS
 - `npm install`
 - Setup environment variable
 - `cp .env.sample .env`
-- Fill in data for db (MySQL)
+- Fill in data for db (MySQL) in the env
 - Run Migration
 - `npm run migrate:latest`
 - To seed db
@@ -29,4 +29,4 @@ This is the backend app for lendsqr powered by Nodejs and TS
 - `npm run dev`
 
 ## Documentation link
-Add your documentation link
+- The endpoints for test of the service are provided in the [Postman Documentation](https://documenter.getpostman.com/view/25225100/2s8ZDa2LwK).
