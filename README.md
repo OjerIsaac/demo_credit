@@ -29,4 +29,4 @@ This is the backend app for lendsqr powered by Nodejs and TS
 - `npm run dev`
 
 ## Documentation link
-- The endpoints for test of the service are provided in the [Postman Documentation](https://documenter.getpostman.com/view/25225100/2s8ZDa2LwK).
+- The endpoints for test of the service are provided in the [Postman Documentation](https://documenter.getpostman.com/view/25225100/2s8ZDa2LwK)
