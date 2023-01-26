@@ -19,14 +19,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OjerIsaac/lendsqr.git"
+    "url": "git+https://github.com/OjerIsaac/demo_credit.git"
   },
   "author": "Isaac Ojerumu <isaacojerumu@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/OjerIsaac/lendsqr/issues"
+    "url": "https://github.com/OjerIsaac/demo_credit/issues"
   },
-  "homepage": "https://github.com/OjerIsaac/lendsqr#readme",
+  "homepage": "https://github.com/OjerIsaac/demo_credit#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "compression": "^1.7.4",

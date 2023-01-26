@@ -1,5 +1,5 @@
-# LENDSQR BACKEND DEVELOPER ASSESSMENT
-This is the backend app for lendsqr powered by Nodejs and TS
+# DEMO CREDIT APP
+This is the backend app for demo_credit powered by Nodejs and TS
 
 ## Requirements
 - NodeJS runtime
@@ -14,8 +14,8 @@ This is the backend app for lendsqr powered by Nodejs and TS
 
 ## How to install
 - Clone the repository
-- `git clone https://github.com/OjerIsaac/lendsqr.git`
-- `cd lendsqr`
+- `git clone https://github.com/OjerIsaac/demo_credit.git`
+- `cd demo_credit`
 - Install dependencies
 - `npm install`
 - Setup environment variable
