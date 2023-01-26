@@ -1,5 +1,5 @@
 # DEMO CREDIT APP
-This is the backend app for demo_credit powered by Nodejs and TS
+This is the backend app for demo credit powered by Nodejs and TS
 
 ## Requirements
 - NodeJS runtime
@@ -28,5 +28,78 @@ This is the backend app for demo_credit powered by Nodejs and TS
 - Run the server in dev env
 - `npm run dev`
 
-## Documentation link
-- The endpoints for test of the service are provided in the [Postman Documentation](https://documenter.getpostman.com/view/25225100/2s8ZDa2LwK)
+## Endpoints.
+### Register User
+
+POST
+```shell
+http://localhost:3030/v1/auth/register
+```
+PAYLOAD DATA
+
+```shell
+{
+    "full_name": "isaac",
+    "username": "ojerumu",
+    "email": "isaac_001@gmail.com",
+    "password": "password"
+}
+```
+
+### Login User
+
+POST
+```shell
+http://localhost:3030/v1/auth/login
+```
+PAYLOAD DATA
+
+```shell
+{
+    "username": "ojerumu",
+    "password": "password"
+}
+```
+
+### Fund Account
+
+POST
+```shell
+http://localhost:3030/v1/fund-account/3
+```
+PAYLOAD DATA
+
+```shell
+{
+    "amount": "500"
+}
+```
+
+### Transfer to a user
+
+POST
+```shell
+http://localhost:3030/v1/transfer-fund/3
+```
+PAYLOAD DATA
+
+```shell
+{
+    "amount": "500",
+    "username": "ojerumu"
+}
+```
+
+### Withdraw funds
+
+POST
+```shell
+http://localhost:3030/v1/withdraw-fund/3
+```
+PAYLOAD DATA
+
+```shell
+{
+    "amount": "500"
+}
+```
